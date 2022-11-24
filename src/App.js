@@ -1,25 +1,33 @@
 import logo from './logo.svg';
 import './App.css';
+import { Component } from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import Plant from './component/Plant';
+import Home from './component/Home';
+import AnimalDeneme from './component/AnimalDeneme';
+import AppNavbarDeneme from './component/navbar/AppNavbarDeneme';
+import Animal from './component/Animal';
+class App extends Component {
+  
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  render() {
+    return (
+      <div className="main">
+
+        <Router>
+
+          <Switch>
+
+            <Route path='/' exact={true} component={Home}/>
+            <Route exact path='/animals' component={Animal}/>
+            <Route path='/plants'exact={true} component={Plant}/>
+          </Switch>
+
+        </Router>
+      </div>
+
+    )
+  }
 }
 
 export default App;
