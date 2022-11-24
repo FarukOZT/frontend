@@ -24,10 +24,10 @@ export default class AppNavbar extends Component {
                 <NavbarBrand tag={Link} to="/animals">Animal</NavbarBrand>
                 <NavbarBrand tag={Link} to="/plants">Plants</NavbarBrand> */}
                     <li>
-                    <NavLink to="/">Sağlık Hizmetim</NavLink>
+                    <NavLink to="/">Home</NavLink>
                     </li>
                     <li>
-                    <NavLink to="/animals">İletişim</NavLink>
+                    <NavLink to="/animals">Animals</NavLink>
                     </li>
                     <li>
                     <NavLink to="/plants">plants</NavLink>
