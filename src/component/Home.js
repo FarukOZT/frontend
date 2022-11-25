@@ -9,10 +9,14 @@ class Home extends Component {
     render() {
         return (
             <div>
-                <AppNavbar/>
-                <Container fluid>
-
-                </Container>
+                <ul>
+                    <li>
+                        <Link to="/">Home</Link>
+                    </li>
+                    <li>
+                        <Link to="/animals">animal</Link>
+                    </li>
+                </ul>
             </div>
         );
     }

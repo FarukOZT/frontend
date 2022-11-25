@@ -1,48 +1,35 @@
-import React from 'react';
+import React, { Component } from 'react';
 import {Link} from "react-router-dom";
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 
 
-function Navbar() {
+export default class AppNavbarDeneme extends Component {
+
+    render() {    
+
     return (
-        <>
-            <Navbar bg="dark" variant="dark">
-                <Container>
-                    <Navbar.Brand href="#home">Navbar</Navbar.Brand>
-                    <Nav className="me-auto">
-                        <Nav.Link href="#home">Home</Nav.Link>
-                        <Nav.Link href="#features">Animal</Nav.Link>
-                        <Nav.Link href="#pricing">Plant</Nav.Link>
-                    </Nav>
-                </Container>
-            </Navbar>
-            <br/>
-            <Navbar bg="primary" variant="dark">
-                <Container>
-                    <Navbar.Brand href="#home">Navbar</Navbar.Brand>
-                    <Nav className="me-auto">
-                        <Nav.Link href="#home">Home</Nav.Link>
-                        <Nav.Link href="#features">Features</Nav.Link>
-                        <Nav.Link href="#pricing">Pricing</Nav.Link>
-                    </Nav>
-                </Container>
-            </Navbar>
+        <nav className="Nav">
+          <div className="Nav__container">
+            <Link to="/" className="Nav__brand">
+            </Link>
 
-            <br/>
-            <Navbar bg="light" variant="light">
-                <Container>
-                    <Navbar.Brand href="#home">Navbar</Navbar.Brand>
-                    <Nav className="me-auto">
-                        <Nav.Link href="#home">Home</Nav.Link>
-                        <Nav.Link href="#features">Features</Nav.Link>
-                        <Nav.Link href="#pricing">Pricing</Nav.Link>
-                    </Nav>
-                </Container>
-            </Navbar>
-        </>
-    );
+            <div className="Nav__right">
+              <ul className="Nav__item-wrapper">
+                <li className="Nav__item">
+                  <Link className="Nav__link" to="/animals">Animal</Link>
+                </li>
+                <li className="Nav__item">
+                  <Link className="Nav__link" to="/path2">Link 2</Link>
+                </li>
+                <li className="Nav__item">
+                  <Link className="Nav__link" to="/path3">Link 3</Link>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+      );
+
+    }
 }
-
-
-export default Navbar;

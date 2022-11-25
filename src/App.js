@@ -7,6 +7,7 @@ import AnimalDeneme from './component/AnimalDeneme';
 import AppNavbarDeneme from './component/navbar/AppNavbarDeneme';
 import Animal from './component/Animal';
 import AppNavbar from './component/navbar/AppNavbar';
+import AppRouter from './AppRouter';
 
 class App extends Component {
 
@@ -14,14 +15,13 @@ class App extends Component {
     render() {
         return (
             <div className="main">
+                
                 <Router>
-
+                    <AppNavbar></AppNavbar>
                     <Switch>
 
-                        <Route path='/' exact={true} component={Home}/>
-                        <Route exact path='/animals' component={AnimalDeneme}/>
-                        <Route path='/plants' exact={true} component={Plant}/>
-
+                        <AppRouter/>
+                        
                     </Switch>
 
                 </Router>
