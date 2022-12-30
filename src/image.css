@@ -1,0 +1,60 @@
+*{
+    box-sizing: border-box;
+}
+.photo{
+    height: 200px;
+    width: 100%;
+}
+body {
+  }
+  .App {
+    width: 40%;
+    margin: 0 auto;
+    margin-top: 200px;
+  }
+  
+  .slick-slide > div {
+    margin: 0 10px;
+  }
+  .slick-list {
+    margin: 0 -10px;
+  }
+  
+  .card {
+    border: 1px solid #fff;
+    background: black;
+    border-radius: 8px;
+    overflow: hidden;
+
+    color: #fff;
+    cursor: pointer;
+  }
+  
+  .card-top h1 {
+    font-size: 0.9rem;
+    margin: 20px;
+  }
+  
+  .card-top img {
+    width: 50%;
+    height: 500px;  
+    object-fit: contain;
+  }
+  
+  .card-bottom {
+    margin: 0 auto;
+  }
+  
+  .category {
+    position: relative;
+  }
+  .category::before {
+    content: '';
+    background: rgb(255, 61, 61);
+    position: absolute;
+    top: calc(100% + 10px);
+    left: 0;
+    right: 0;
+    height: 2px;
+  }
+  

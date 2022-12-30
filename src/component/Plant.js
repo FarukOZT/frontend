@@ -1,21 +1,21 @@
-import React, {Component} from 'react';
-import {Button, ButtonGroup, Container, Table} from 'reactstrap';
+import React, { Component } from 'react';
+import { Button, ButtonGroup, Container, Table } from 'reactstrap';
 import AppNavbarDeneme from './navbar/AppNavbarDeneme';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import AppNavbar from './navbar/AppNavbar';
 
 class Plant extends Component {
 
     constructor(props) {
         super(props);
-        this.state = {plants: []};
+        this.state = { plants: [] };
         this.remove = this.remove.bind(this);
     }
 
     componentDidMount() {
         fetch('/plants')
             .then(response => response.json())
-            .then(data => this.setState({plants: data}));
+            .then(data => this.setState({ plants: data }));
     }
 
     async remove(id) {
@@ -27,16 +27,16 @@ class Plant extends Component {
             }
         }).then(() => {
             let updatedPlants = [...this.state.plants].filter(i => i.id !== id);
-            this.setState({plants: updatedPlants});
+            this.setState({ plants: updatedPlants });
         });
     }
 
     render() {
-        const {plants} = this.state;
+        const { plants } = this.state;
 
         const plantsList = plants.map(plant => {
             return <tr key={plant.id}>
-                <td style={{whiteSpace: 'nowrap'}}>{plant.name}</td>
+                <td style={{ whiteSpace: 'nowrap' }}>{plant.name}</td>
                 <td>{plant.description}</td>
                 {/* <td>
                 <ButtonGroup>
@@ -49,22 +49,20 @@ class Plant extends Component {
 
         return (
             <div>
-                <AppNavbar/>
+                <AppNavbar />
                 <Container fluid>
-                    {/* <div className="float-right">
-                    <Button color="success" tag={Link} to="/plants/add">Add Plant</Button>
-                </div> */}
+
                     <h3>Plants</h3>
                     <Table className="mt-4">
                         <thead>
-                        <tr>
-                            <th width="30%">Name</th>
-                            <th width="30%">description</th>
-                            {/* <th width="40%">Actions</th> */}
-                        </tr>
+                            <tr>
+                                <th width="30%">Name</th>
+                                <th width="30%">description</th>
+                                {/* <th width="40%">Actions</th> */}
+                            </tr>
                         </thead>
                         <tbody>
-                        {plantsList}
+                            {plantsList}
                         </tbody>
                     </Table>
                 </Container>

@@ -1,67 +1,58 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import axios from "axios";
 import "../App.css";
-import {Navbar} from 'reactstrap';
+import { Button, ButtonGroup, Container, Table } from 'reactstrap';
 import AppNavbar from './navbar/AppNavbar';
 
 class Animal extends Component {
 
-  state = {
-    animals: []
+  constructor(props) {
+    super(props);
+    this.state = { animals: [] };
   }
 
   componentDidMount() {
-    axios.get(`/animals`)
-        .then(res => {
-          const animals = res.data;
-          this.setState({animals});
-        })
+    fetch('/animals')
+      .then(response => response.json())
+      .then(data => this.setState({ animals: data }));
   }
 
+  render() {
+    const { animals } = this.state;
 
-    render() {
-    const {animals} = this.state;
+    const animalsList = animals.map(animal => {
+      return <tr key={animal.id}>
+        <td style={{ whiteSpace: 'nowrap' }}>{animal.name}</td>
+        <td>{animal.description}</td>
+        <img src={animal.image} width="200px" height="200px"/>
+      </tr>
+    });
 
-  return (
-    <div class="card-body">
-      <div className="col-md-6">
-        <h4>Employees List</h4>
+    return (
+      <div>
+        <AppNavbar />
+        <Container fluid>
+          <h3>Animals</h3>
+          <Table className="mt-4">
+            <thead>
+              <tr>
+                <th width="30%">Name</th>
+                <th width="30%">description</th>
+                <th width="30%">image</th>
 
-        <div class="container">
-          <div class="row">
-            <div class="col-12">
-              <table class="table table-bordered table-striped">
-                <thead>
-                  <tr>
-                    <th>Name</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
+                {/* <th width="40%">Actions</th> */}
+              </tr>
+            </thead>
+            <tbody>
+              {animalsList}
+            </tbody>
+          </Table>
+        </Container>
 
-                  {
-                    
-                    animals.map((animal) => (
-
-                      <tr>
-                        <td>{animal.name}</td>
-                        <td>{animal.description}</td>
-                      </tr>
-
-                    ))
-                  }
-
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </div>
       </div>
 
-    </div>
-
-  );
-}
+    )
+  }
 }
 
 export default Animal;
