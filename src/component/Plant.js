@@ -49,7 +49,7 @@ class Plant extends Component {
 
         return (
             <div>
-                <AppNavbar />
+                <AppNavbarDeneme />
                 <Container fluid>
 
                     <h3>Plants</h3>

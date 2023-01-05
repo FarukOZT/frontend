@@ -3,6 +3,7 @@ import axios from "axios";
 import "../App.css";
 import { Button, ButtonGroup, Container, Table } from 'reactstrap';
 import AppNavbar from './navbar/AppNavbar';
+import AppNavbarDeneme from './navbar/AppNavbarDeneme';
 
 class Animal extends Component {
 
@@ -30,7 +31,7 @@ class Animal extends Component {
 
     return (
       <div>
-        <AppNavbar />
+        <AppNavbar/>
         <Container fluid>
           <h3>Animals</h3>
           <Table className="mt-4">
