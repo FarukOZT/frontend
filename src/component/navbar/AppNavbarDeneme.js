@@ -42,6 +42,7 @@ class AppNavbarDeneme extends Component  {
     <div id="myLinks">
       <a href="animals">Animal</a>
       <a href="plants">Plants</a>
+      <a href="/">Home</a>
     </div>
         
     </div>
